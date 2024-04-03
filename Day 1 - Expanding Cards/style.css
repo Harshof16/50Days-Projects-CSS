@@ -1,0 +1,59 @@
+@import url('https://fonts.google.com/share?selection.family=Kalam:wght@300;400;700');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Kalam', sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* to center the container */
+}
+
+.container {
+    display: flex;
+    width: 90vw;
+}
+
+.panel {
+    background-size: auto 100%;   /* setting height to 100% of the container's height, width will automatically maintain the aspect ratio */
+    background-position: center;   /* position of background image within container */ 
+    background-repeat: no-repeat;
+    height: 80vh;   /* so it doesn't get fit according to content */
+    border-radius: 50px;
+    color: aliceblue;
+    cursor: pointer;
+    flex: 0.5;  /* of equal size right now, will change it on active class */
+    margin: 10px;
+    position: relative; /* to make h3 absolute */
+    transition: flex 0.7s ease-in;
+}
+
+.panel h3 {
+    font-size: 24px;
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    margin: 0;
+    opacity: 0; /* opacity initially 0, will show text when the respective div is active */
+}
+
+.panel.active {
+    flex: 5;    /* increasing on active class */
+}
+
+.panel.active h3 {
+    opacity: 1;
+    transition: opacity 0.3s ease-in 0.4s;
+}
+
+@media(max-width: 480px) {
+    .container {
+        width: 100vw;
+    }
+    .panel:nth-of-type(4),.panel:nth-of-type(5) {
+        display: none;
+    }
+}
